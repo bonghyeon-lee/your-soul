@@ -1,0 +1,11 @@
+{
+  "language": "ko",
+  "metrics": {
+    "locus_of_control": true,
+    "regulatory_focus": true,
+    "openness_to_experience": true,
+    "self_monitoring": true,
+    "attachment_style": true,
+    "defense_mechanisms": true
+  }
+}
