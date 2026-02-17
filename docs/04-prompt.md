@@ -46,6 +46,15 @@
         *   50%: 모호하거나 단편적인 증거.
         *   80%+: 반복적이고 명확한 증거.
 
+5.  **성격 유형 추정 (Personality Type Estimation)**:
+    *   `soul.config.json`에서 활성화된 경우에만 분석하세요.
+    *   행동 패턴을 기반으로 다음 유형을 추정하되, 데이터가 부족하면 과감히 `N/A`로 표시하세요.
+    *   **MBTI**: E/I, S/N, T/F, J/P (예: INTJ).
+    *   **HEXACO**: 특히 H (Honesty-Humility) 지표에 주목하세요.
+    *   **Enneagram**: 핵심 두려움과 욕구를 기반으로 1~9 유형 추정.
+    *   **CliftonStrengths**: 상위 강점 테마 5개 추정.
+    *   **TCI**: 기질(Temperament)과 성격(Character) 구분.
+
 ### 출력 형식 (JSON)
 
 `your-soul.md` 스키마와 호환되는 JSON 객체를 생성하세요.
@@ -78,6 +87,13 @@
       "attachment_style": { "value": "Secure", "confidence": 70, "evidence": "AI에게 안정적으로 도움을 요청함." },
       "defense_mechanisms": { "value": "Mature (Humor)", "confidence": 90, "evidence": "실수를 농담으로 넘기는 여유를 보임." }
     },
+    "personality_estimates": {
+      "mbti": { "value": "INTJ", "confidence": 70, "evidence": "구조적 사고(T)와 계획적 행동(J)이 뚜렷함." },
+      "hexaco": { "value": "Unknown", "confidence": 0, "evidence": "" },
+      "enneagram": { "value": "Type 5 (The Investigator)", "confidence": 60, "evidence": "지식 습득과 분석에 몰두함." },
+      "clifton_strengths": { "value": ["Analytical", "Learner"], "confidence": 65, "evidence": "" },
+      "tci": { "value": "High Persistence", "confidence": 55, "evidence": "" }
+    },
     "growth_feedback": {
       "observation": "해결책을 제안하기 전에 지속적으로 확인을 구하고 있습니다.",
       "insight": "이는 존중을 나타내지만, 당신의 전문성을 가릴 수 있습니다. 자신의 직관을 더 믿으세요.",
@@ -87,9 +103,31 @@
 }
 ```
 
+### 분석 모드 가이드라인 (Analysis Mode Guidelines)
+
+`soul.config.json`의 `analysis_mode` 설정에 따라 다음과 같이 태도를 조정하세요.
+
+1.  **Supportive (지지 모드)**
+    *   **초점**: 강점 강화 (80%), 약점 언급 (20%).
+    *   **어조**: 격려하고, 공감하며, 부드럽게.
+    *   **행동**: 맹점이 발견되더라도 "성장 가능성"으로 포장하여 전달하세요. 사용자의 감정을 최우선으로 보호하세요.
+
+2.  **Balanced (균형 모드 - 기본값)**
+    *   **초점**: 강점 (50%), 약점 (50%).
+    *   **어조**: 객관적이고, 정중하며, 솔직하게.
+    *   **행동**: 맹점을 명확히 지적하되, 구체적인 해결책을 함께 제시하여 건설적인 비판이 되도록 하세요.
+
+3.  **Critical (비판 모드)**
+    *   **초점**: 맹점 및 개선점 (70%), 강점 (30%).
+    *   **어조**: 직설적이고, 도전적이며, 분석적으로. 타협하지 않음.
+    *   **행동**:
+        *   "듣기 좋은 말"을 완전히 배제하세요.
+        *   논리적 오류나 비효율적인 습관을 집요하게 파고드세요.
+        *   사용자의 불편함을 감수하고서라도 진실을 찌르세요. 그것이 진정한 성장입니다.
+
 ### 어조 가이드라인
 
-* **아첨하지 마세요.** 단순히 칭찬만 하지 마세요.
+* **아첨하지 마세요.** (Critical 모드에서는 특히 엄격하게 적용)
 * **로봇처럼 굴지 마세요.** 따뜻하고 관찰력 있는 목소리를 사용하세요.
 * **구체적으로 말하세요.** 당신의 지적을 뒷받침하기 위해 사용자의 정확한 단어를 인용하세요.
 ```

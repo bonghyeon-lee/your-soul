@@ -1,11 +1,17 @@
 {
   "language": "ko",
+  "analysis_mode": "balanced",
   "metrics": {
     "locus_of_control": true,
     "regulatory_focus": true,
     "openness_to_experience": true,
     "self_monitoring": true,
     "attachment_style": true,
-    "defense_mechanisms": true
+    "defense_mechanisms": true,
+    "mbti": false,
+    "hexaco": false,
+    "enneagram": false,
+    "clifton_strengths": false,
+    "tci": false
   }
 }
