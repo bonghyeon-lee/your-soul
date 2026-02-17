@@ -33,6 +33,10 @@ out/
 logs/*.log
 logs/journal.md
 logs/archive/
-your-soul.md
-soul.config.json
 
+# Soul
+your-soul.md
+growth-plan.md
+
+# Config
+soul.config.json
